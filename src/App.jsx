@@ -1,6 +1,14 @@
 import './App.css'
+import { fakeUserData } from './Api/api'
+import { useDispatch } from 'react-redux';
+import { addUser } from './Store/Slices/UserSlice';
 
 function App() {
+  const dispatch = useDispatch();
+
+  const addNewUser = (name) => {
+    dispatch(addUser(name));
+  }
 
   return (
     <>
@@ -9,7 +17,7 @@ function App() {
         <div className="my-10 max-w-7xl px-12">
           <div className="flex justify-between py-2">
             <div className="text-3xl font-bold text-slate-500">List of User Details</div>
-            <button className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            <button className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={() => addNewUser(fakeUserData())}>
               Add New Users
             </button>
           </div>
