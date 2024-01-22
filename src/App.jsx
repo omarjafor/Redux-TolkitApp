@@ -6,17 +6,25 @@ function App() {
     <>
       <div>
         <h1 className='font-bold'>Redux Tolkit App</h1>
-        <div className="content">
-          <div className="admin-table">
-            <div className="admin-subtitle">List of User Details</div>
-            <button className="btn add-btn">Add New Users</button>
+        <div className="my-10">
+          <div className="flex justify-around py-2">
+            <div className="text-3xl font-bold text-slate-500">List of User Details</div>
+            <button className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+              Add New Users
+            </button>
           </div>
-          <ul>
+          <hr />
+          <ul className='m-2 p-2 space-y-4'>
             <li>Hi 1</li>
-          <li>Hii 2</li>
+            <hr />
+            <li>Hi 2</li>
           </ul>
           <hr />
-          <div>DeleteAllUser</div>
+          <div className='my-2'>
+            <button className="bg-orange-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ">
+              Clear All Users
+            </button>
+          </div>
         </div>
       </div>
     </>
