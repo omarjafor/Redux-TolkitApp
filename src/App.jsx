@@ -1,10 +1,15 @@
 import './App.css'
 import { fakeUserData } from './Api/api'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from './Store/Slices/UserSlice';
 
 function App() {
   const dispatch = useDispatch();
+  const data = useSelector((state) => {
+    return state.users;
+  })
+
+  console.log(data);
 
   const addNewUser = (name) => {
     dispatch(addUser(name));
@@ -22,12 +27,11 @@ function App() {
             </button>
           </div>
           <hr />
-          <ul className='m-2 p-2 space-y-4'>
-            <li>Hi 1</li>
-            <hr />
-            <li>Hi 2</li>
+          <ul className='m-2 p-2 space-y-4 text-left'>
+            {
+              data.map((user, id) => <li key={id}> {user} <hr /> </li>)
+            }
           </ul>
-          <hr />
           <div className='my-2 flex justify-end'>
             <button className="bg-orange-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ">
               Clear All Users
