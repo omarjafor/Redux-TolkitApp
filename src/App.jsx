@@ -2,7 +2,7 @@ import './App.css'
 import { MdDelete } from "react-icons/md";
 import { fakeUserData } from './Api/api'
 import { useDispatch, useSelector } from 'react-redux';
-import { addUser } from './Store/Slices/UserSlice';
+import { addUser, removeUser } from './Store/Slices/UserSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function App() {
   }
 
   const deleteUser = (id) => {
-    console.log(id);
+    dispatch(removeUser(id))
   }
   return (
     <>
