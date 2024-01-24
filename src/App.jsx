@@ -2,7 +2,7 @@ import './App.css'
 import { MdDelete } from "react-icons/md";
 import { fakeUserData } from './Api/api'
 import { useDispatch, useSelector } from 'react-redux';
-import { addUser, removeUser } from './Store/Slices/UserSlice';
+import { addUser, removeUser, deleteUsers } from './Store/Slices/UserSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -10,14 +10,16 @@ function App() {
     return state.users;
   })
 
-  console.log(data);
-
   const addNewUser = (name) => {
     dispatch(addUser(name));
   }
 
   const deleteUser = (id) => {
     dispatch(removeUser(id))
+  }
+
+  const deleteAll = () => {
+    dispatch(deleteUsers())
   }
   return (
     <>
@@ -37,7 +39,7 @@ function App() {
             }
           </ul>
           <div className='my-2 flex justify-end'>
-            <button className="bg-orange-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ">
+            <button className="bg-orange-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded " onClick={deleteAll}>
               Clear All Users
             </button>
           </div>
