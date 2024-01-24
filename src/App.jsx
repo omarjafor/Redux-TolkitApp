@@ -3,7 +3,7 @@ import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { fakeUserData } from './Api/api'
 import { useDispatch, useSelector } from 'react-redux';
-import { addUser, removeUser, deleteUsers } from './Store/Slices/UserSlice';
+import { addUser, removeUser, updateUser, deleteUsers } from './Store/Slices/UserSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,6 +17,11 @@ function App() {
 
   const deleteUser = (id) => {
     dispatch(removeUser(id))
+  }
+
+  const editUser = (id) => {
+    console.log(id);
+    dispatch(updateUser(id))
   }
 
   const deleteAll = () => {
@@ -40,7 +45,7 @@ function App() {
               <li key={id} className='flex justify-between'> 
                 <div>{id + 1}. {user}</div> 
                 <div className='flex justify-end'>
-                  <button className='p-2 mr-4 bg-blue-500 hover:bg-rose-700 hover:rounded rounded-xl' onClick={() => deleteUser(id)}><FaEdit /></button> 
+                  <button className='p-2 mr-4 bg-blue-500 hover:bg-rose-700 hover:rounded rounded-xl' onClick={() => editUser(id)}><FaEdit /></button> 
                   <button className='p-2 bg-red-500 hover:bg-rose-700 hover:rounded rounded-xl' onClick={() => deleteUser(id)}><MdDelete /></button>
                 </div>
               </li>)
