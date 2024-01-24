@@ -20,7 +20,6 @@ function App() {
   }
 
   const editUser = (id) => {
-    console.log(id);
     dispatch(updateUser(id))
   }
 
